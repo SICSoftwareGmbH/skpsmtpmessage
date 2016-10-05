@@ -362,6 +362,12 @@ NSString *kSKPSMTPPartContentTransferEncodingKey = @"kSKPSMTPPartContentTransfer
             
             break;
         }
+        case NSStreamEventNone:
+        case NSStreamEventErrorOccurred:
+        case NSStreamEventOpenCompleted:
+        case NSStreamEventHasSpaceAvailable:
+            // not handled
+            break;
     }
 }
             
@@ -578,9 +584,7 @@ NSString *kSKPSMTPPartContentTransferEncodingKey = @"kSKPSMTPPartContentTransfer
                             NSLog(@"WARNING: Will not validate SSL chain!!!");
                             
                             CFDictionarySetValue(sslOptions, kCFStreamSSLValidatesCertificateChain, kCFBooleanFalse);
-                            CFDictionarySetValue(sslOptions, kCFStreamSSLAllowsExpiredCertificates, kCFBooleanTrue);
-                            CFDictionarySetValue(sslOptions, kCFStreamSSLAllowsExpiredRoots, kCFBooleanTrue);
-                            CFDictionarySetValue(sslOptions, kCFStreamSSLAllowsAnyRoot, kCFBooleanTrue);
+                            CFDictionarySetValue(sslOptions, kCFStreamSSLPeerName, kCFBooleanFalse);
                         }
                         
                         NSLog(@"Beginning TLSv1...");
