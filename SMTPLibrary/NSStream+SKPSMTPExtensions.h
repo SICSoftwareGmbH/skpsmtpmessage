@@ -35,6 +35,6 @@
 
 @interface NSStream (SKPSMTPExtensions)
 
-+ (void)getStreamsToHostNamed:(NSString *)hostName port:(NSInteger)port inputStream:(NSInputStream **)inputStream outputStream:(NSOutputStream **)outputStream;
++ (void)getStreamsToHostNamed:(NSString *)hostName port:(int)port inputStream:(NSInputStream **)inputStream outputStream:(NSOutputStream **)outputStream;
 
 @end
